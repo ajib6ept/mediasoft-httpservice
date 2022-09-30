@@ -1,0 +1,121 @@
+[
+{
+    "model": "httpservice.shop",
+    "pk": 1,
+    "fields": {
+        "name": "ГолдВстреча",
+        "city": 1,
+        "street": 2,
+        "number": "123",
+        "opening_time": "08:00:00",
+        "closing_time": "19:00:00"
+    }
+},
+{
+    "model": "httpservice.shop",
+    "pk": 2,
+    "fields": {
+        "name": "МаркетПерекус",
+        "city": 3,
+        "street": 4,
+        "number": "33",
+        "opening_time": "03:00:00",
+        "closing_time": "10:00:00"
+    }
+},
+{
+    "model": "httpservice.shop",
+    "pk": 3,
+    "fields": {
+        "name": "АбаГолд",
+        "city": 5,
+        "street": 6,
+        "number": "1",
+        "opening_time": "19:00:00",
+        "closing_time": "23:00:00"
+    }
+},
+{
+    "model": "httpservice.city",
+    "pk": 1,
+    "fields": {
+        "name": "Усть-Омчуг"
+    }
+},
+{
+    "model": "httpservice.city",
+    "pk": 2,
+    "fields": {
+        "name": "Вилючинск"
+    }
+},
+{
+    "model": "httpservice.city",
+    "pk": 3,
+    "fields": {
+        "name": "Залесье"
+    }
+},
+{
+    "model": "httpservice.city",
+    "pk": 4,
+    "fields": {
+        "name": "Ханты-мансийск"
+    }
+},
+{
+    "model": "httpservice.city",
+    "pk": 5,
+    "fields": {
+        "name": "Лучегорск"
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 1,
+    "fields": {
+        "name": "Электрозаводской проезд",
+        "city": 1
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 2,
+    "fields": {
+        "name": "Жерновская",
+        "city": 1
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 3,
+    "fields": {
+        "name": "Курьяновская",
+        "city": 2
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 4,
+    "fields": {
+        "name": "Ангарная",
+        "city": 3
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 5,
+    "fields": {
+        "name": "Чермянская",
+        "city": 4
+    }
+},
+{
+    "model": "httpservice.street",
+    "pk": 6,
+    "fields": {
+        "name": "Коренная",
+        "city": 5
+    }
+}
+]
