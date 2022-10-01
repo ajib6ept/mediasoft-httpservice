@@ -1,5 +1,13 @@
 # mediasoft-httpservice
 
+
+### Tests and linter status:
+[![Actions Status](https://github.com/ajib6ept/mediasoft-httpservice/workflows/check-code/badge.svg)](https://github.com/ajib6ept/mediasoft-httpservice/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/08a9b64cfc25fe0692b1/maintainability)](https://codeclimate.com/github/ajib6ept/mediasoft-httpservice/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/08a9b64cfc25fe0692b1/test_coverage)](https://codeclimate.com/github/ajib6ept/mediasoft-httpservice/test_coverage)
+***
+
+
 Реализовать сервис, который принимает и отвечает на HTTP запросы.
 
 **Функционал**
@@ -7,9 +15,9 @@
 2. Сохранение всех объектов в базе данных.f
 3. Запросы
 - GET /city/ — получение всех городов из базы;
-- GET /city//street/ — получение всех улиц города;(city_id — идентификатор города)
+- GET /city_id/street/ — получение всех улиц города;(city_id — идентификатор города)
 - POST /shop/ — создание магазина; Данный метод получает json c объектом магазина, в ответ возвращает id созданной записи.
-- GET /shop/?street=&city=&open=0/1 — получение списка магазинов;
+- GET /shop?street=&city=&open=0/1 — получение списка магазинов;
 
 i. Метод принимает параметры для фильтрации. Параметры не обзательны. В случае отсутствии параметров выводтся все магазины, если хоть один параметр есть, то по нему выполнется фильтраци. <br>
 ii. Важно!: в объекте каждого магазина выводится название города и улицы, а не id записей.<br>
