@@ -9,7 +9,17 @@ class CitySerializer(serializers.HyperlinkedModelSerializer):
         fields = ["name"]
 
 
-class ShopSerializer(serializers.HyperlinkedModelSerializer):
+class ShopSerializer(serializers.ModelSerializer):
+    def validate(self, data):
+        if data["opening_time"] >= data["closing_time"]:
+            raise serializers.ValidationError(
+                "closing time must be more than the opening time"
+            )
+
+        if data["street"].city.id != data["city"].id:
+            raise serializers.ValidationError("incorrect street id")
+        return data
+
     class Meta:
         model = Shop
         fields = [

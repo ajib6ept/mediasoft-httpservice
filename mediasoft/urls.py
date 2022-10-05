@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from mediasoft.httpservice.views import CityViewSet, StreetViewSet
+from mediasoft.httpservice.views import CityViewSet, ShopViewSet, StreetViewSet
 
 # router = routers.DefaultRouter()
 # router.register(r"city/street", StreetViewSet)
@@ -18,4 +18,5 @@ urlpatterns = [
         name="street-list",
     ),
     path("city/", CityViewSet.as_view({"get": "list"}), name="city-list"),
+    path("shop/", ShopViewSet.as_view(), name="shop-create"),
 ]

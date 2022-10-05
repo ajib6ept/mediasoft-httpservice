@@ -1,4 +1,5 @@
-from rest_framework import viewsets
+from rest_framework import generics, viewsets
+from rest_framework.response import Response
 
 from mediasoft.httpservice.models import City, Shop, Street
 from mediasoft.httpservice.serializers import (CitySerializer, ShopSerializer,
@@ -19,7 +20,20 @@ class StreetViewSet(viewsets.ReadOnlyModelViewSet):
         return qs.filter(city_id=self.kwargs.get("city_id"))
 
 
-class ShopViewSet(viewsets.ModelViewSet):
+class ShopViewSet(generics.CreateAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
-    http_method_names = ["get"]
+
+    def create(self, request, *args, **kwargs):
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        new_shop = serializer.save()
+
+        return Response(
+            {
+                "status": 200,
+                "message": "The store has been successfully saved",
+                "data": {"results": new_shop.id},
+            }
+        )
