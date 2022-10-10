@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 
@@ -14,6 +16,14 @@ class Shop(models.Model):
 
     class Meta:
         ordering = ["-id"]
+
+    @property
+    def is_open(self):
+        return (
+            "1"
+            if self.opening_time <= datetime.now().time() < self.closing_time
+            else "0"
+        )
 
 
 class City(models.Model):

@@ -50,3 +50,16 @@ class ShopFactory(factory.django.DjangoModelFactory):
     closing_time = factory.LazyAttribute(
         lambda x: time(hour=randint(MAX_HOUR + 1, MAX_HOUR * 2))
     )
+
+
+def build_shop():
+    new_street = StreetFactory.create()
+    new_shop = ShopFactory.build()
+    return {
+        "name": new_shop.name,
+        "city": new_street.city.id,
+        "street": new_street.id,
+        "number": new_shop.number,
+        "opening_time": str(new_shop.opening_time),
+        "closing_time": str(new_shop.closing_time),
+    }

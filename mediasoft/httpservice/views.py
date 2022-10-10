@@ -1,6 +1,8 @@
+from django_filters import rest_framework as filters
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 
+from mediasoft.httpservice.filters import ShopFilter
 from mediasoft.httpservice.models import City, Shop, Street
 from mediasoft.httpservice.serializers import (CitySerializer, ShopSerializer,
                                                StreetSerializer)
@@ -20,9 +22,12 @@ class StreetViewSet(viewsets.ReadOnlyModelViewSet):
         return qs.filter(city_id=self.kwargs.get("city_id"))
 
 
-class ShopViewSet(generics.CreateAPIView):
+class ShopViewSet(generics.ListCreateAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
+
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = ShopFilter
 
     def create(self, request, *args, **kwargs):
 
